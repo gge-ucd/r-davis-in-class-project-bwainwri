@@ -37,3 +37,18 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
   scale_x_log10() +
   geom_smooth(method = 'lm', color = 'black', linetype = 'dashed') +
   theme_bw()
+
+# Create a boxplot that shows the life expectency for Brazil, China, El Salvador, Niger, and the 
+# United States, with the data points in the backgroud using geom_jitter. Label the X and Y axis 
+# with “Country” and “Life Expectancy” and title the plot “Life Expectancy of Five Countries”.
+
+gapminder %>% 
+  filter(country == "Brazil" | country == "China" | country == "El Salvador" | country == "Niger" | country == "United States") %>% 
+  ggplot(aes(x = country, y = lifeExp)) +
+  geom_boxplot(width = 1, alpha = 0.5) +
+  theme_classic() +
+  geom_jitter(position = position_jitter(width = 0.5), alpha = 1/2) +
+  labs(x ="Country", y = "Life Expectancy", title = "Life Expectancy of Five Countries")
+
+
+
