@@ -26,11 +26,14 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
   scale_x_log10() +
   geom_smooth(method = 'lm', color = 'black', linetype = 'dashed') +
   theme_bw()
-?geom_smooth
+
+#scale_x_log10 changes the scale of the x axis to log 10
 # geom_smooth adds a trend "line" through the data. In this case, it's linear model.
+
 
 # Challenge! Modify the above code to size the points in proportion to the population of the 
 # country. Hint: Are you translating data to a visual feature of the plot?
+
 gapminder
 ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point(aes(color = continent, size = pop)) + 
